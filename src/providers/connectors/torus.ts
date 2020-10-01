@@ -1,14 +1,14 @@
-import { IAbstractConnectorOptions } from "../../helpers";
+import { IAbstractConnectorOptions } from '../../helpers';
 
 interface NetworkParams {
   host:
-    | "mainnet"
-    | "rinkeby"
-    | "ropsten"
-    | "kovan"
-    | "goerli"
-    | "localhost"
-    | "matic"
+    | 'mainnet'
+    | 'rinkeby'
+    | 'ropsten'
+    | 'kovan'
+    | 'goerli'
+    | 'localhost'
+    | 'matic'
     | string;
   chainId?: number;
   networkName?: string;
@@ -23,7 +23,7 @@ interface VerifierStatus {
 }
 
 interface LoginParams {
-  verifier?: "google" | "facebook" | "twitch" | "reddit" | "discord";
+  verifier?: 'google' | 'facebook' | 'twitch' | 'reddit' | 'discord';
 }
 
 export interface IOptions {
@@ -45,12 +45,12 @@ const ConnectToTorus = async (Torus: any, opts: ITorusConnectorOptions) => {
   return new Promise(async (resolve, reject) => {
     try {
       // defaults
-      let buttonPosition = "bottom-left";
-      let buildEnv = "production";
+      let buttonPosition = 'bottom-left';
+      let buildEnv = 'production';
       let enableLogging = true;
       let showTorusButton = false;
       let enabledVerifiers = {};
-      let network: NetworkParams = { host: "mainnet" };
+      let network: NetworkParams = { host: 'mainnet' };
       let defaultVerifier = undefined;
 
       // parsing to Torus interfaces

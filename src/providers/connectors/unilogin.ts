@@ -1,4 +1,4 @@
-import { IAbstractConnectorOptions } from "../../helpers";
+import { IAbstractConnectorOptions } from '../../helpers';
 
 export interface IUniloginConnectorOptions extends IAbstractConnectorOptions {
 }

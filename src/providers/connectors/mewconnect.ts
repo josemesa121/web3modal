@@ -1,4 +1,4 @@
-import { IAbstractConnectorOptions, getChainId } from "../../helpers";
+import { IAbstractConnectorOptions, getChainId } from '../../helpers';
 
 export interface IMewConnectConnectorOptions
   extends IAbstractConnectorOptions {
@@ -11,12 +11,12 @@ const ConnectToMewConnect = (
   opts: IMewConnectConnectorOptions
 ) => {
   return new Promise(async (resolve, reject) => {
-    let infuraId = "";
+    let infuraId = '';
     let rpc = undefined;
     let chainId = 1;
 
     if (opts) {
-      infuraId = opts.infuraId || "";
+      infuraId = opts.infuraId || '';
       rpc = opts.rpc || undefined;
       if(opts.infuraId && !rpc){
         rpc = `wss://mainnet.infura.io/ws/v3/${infuraId}`

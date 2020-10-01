@@ -1,15 +1,15 @@
-import * as React from "react";
-import * as PropTypes from "prop-types";
-import styled from "styled-components";
+import * as React from 'react';
+import * as PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { Provider } from "./Provider";
+import { Provider } from './Provider';
 import {
   MODAL_LIGHTBOX_CLASSNAME,
   MODAL_CONTAINER_CLASSNAME,
   MODAL_HITBOX_CLASSNAME,
   MODAL_CARD_CLASSNAME
-} from "../constants";
-import { SimpleFunction, IProviderUserOptions, ThemeColors } from "../helpers";
+} from '../constants';
+import { SimpleFunction, IProviderUserOptions, ThemeColors } from '../helpers';
 
 declare global {
   // tslint:disable-next-line
@@ -39,14 +39,14 @@ const SLightbox = styled.div<ILightboxStyleProps>`
   will-change: opacity;
   background-color: ${({ opacity }) => {
     let alpha = 0.4;
-    if (typeof opacity === "number") {
+    if (typeof opacity === 'number') {
       alpha = opacity;
     }
     return `rgba(0, 0, 0, ${alpha})`;
   }};
   opacity: ${({ show }) => (show ? 1 : 0)};
-  visibility: ${({ show }) => (show ? "visible" : "hidden")};
-  pointer-events: ${({ show }) => (show ? "auto" : "none")};
+  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
+  pointer-events: ${({ show }) => (show ? 'auto' : 'none')};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,8 +69,8 @@ const SModalContainer = styled.div<IModalContainerStyleProps>`
   align-items: center;
   justify-content: center;
   opacity: ${({ show }) => (show ? 1 : 0)};
-  visibility: ${({ show }) => (show ? "visible" : "hidden")};
-  pointer-events: ${({ show }) => (show ? "auto" : "none")};
+  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
+  pointer-events: ${({ show }) => (show ? 'auto' : 'none')};
 `;
 
 const SHitbox = styled.div`
@@ -95,18 +95,18 @@ const SModalCard = styled.div<IModalCardStyleProps>`
   margin: 10px;
   padding: 0;
   opacity: ${({ show }) => (show ? 1 : 0)};
-  visibility: ${({ show }) => (show ? "visible" : "hidden")};
-  pointer-events: ${({ show }) => (show ? "auto" : "none")};
+  visibility: ${({ show }) => (show ? 'visible' : 'hidden')};
+  pointer-events: ${({ show }) => (show ? 'auto' : 'none')};
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : "800px")};
+  max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : '800px')};
   min-width: fit-content;
   max-height: 100%;
   overflow: auto;
 
   @media screen and (max-width: 768px) {
-    max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : "500px")};
+    max-width: ${({ maxWidth }) => (maxWidth ? `${maxWidth}px` : '500px')};
     grid-template-columns: 1fr;
   }
 `;
@@ -137,7 +137,7 @@ export class Modal extends React.Component<IModalProps, IModalState> {
     };
   }
   public static propTypes = {
-    userOptions: PropTypes.object.isRequired,
+    userOptions: PropTypes.array.isRequired,
     onClose: PropTypes.func.isRequired,
     resetState: PropTypes.func.isRequired,
     lightboxOpacity: PropTypes.number.isRequired
@@ -192,6 +192,7 @@ export class Modal extends React.Component<IModalProps, IModalState> {
             {userOptions.map(provider =>
               !!provider ? (
                 <Provider
+                  key={provider.name}
                   name={provider.name}
                   logo={provider.logo}
                   description={provider.description}

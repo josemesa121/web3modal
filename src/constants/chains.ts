@@ -1,202 +1,202 @@
-import { ChainDataList } from "../helpers";
+import { ChainDataList } from '../helpers';
 
 export const CHAIN_DATA_LIST: ChainDataList = {
   1: {
     chainId: 1,
-    chain: "ETH",
-    network: "mainnet",
+    chain: 'ETH',
+    network: 'mainnet',
     networkId: 1
   },
   2: {
     chainId: 2,
-    chain: "EXP",
-    network: "expanse",
+    chain: 'EXP',
+    network: 'expanse',
     networkId: 1
   },
   3: {
     chainId: 3,
-    chain: "ETH",
-    network: "ropsten",
+    chain: 'ETH',
+    network: 'ropsten',
     networkId: 3
   },
   4: {
     chainId: 4,
-    chain: "ETH",
-    network: "rinkeby",
+    chain: 'ETH',
+    network: 'rinkeby',
     networkId: 4
   },
   5: {
     chainId: 5,
-    chain: "ETH",
-    network: "goerli",
+    chain: 'ETH',
+    network: 'goerli',
     networkId: 5
   },
   6: {
     chainId: 6,
-    chain: "ETC",
-    network: "kotti",
+    chain: 'ETC',
+    network: 'kotti',
     networkId: 6
   },
   8: {
     chainId: 8,
-    chain: "UBQ",
-    network: "ubiq",
+    chain: 'UBQ',
+    network: 'ubiq',
     networkId: 88
   },
   9: {
     chainId: 9,
-    chain: "UBQ",
-    network: "ubiq-testnet",
+    chain: 'UBQ',
+    network: 'ubiq-testnet',
     networkId: 2
   },
   11: {
     chainId: 11,
-    chain: "META",
-    network: "metadium",
+    chain: 'META',
+    network: 'metadium',
     networkId: 11
   },
   12: {
     chainId: 12,
-    chain: "META",
-    network: "metadium-testnet",
+    chain: 'META',
+    network: 'metadium-testnet',
     networkId: 12
   },
   18: {
     chainId: 18,
-    chain: "TST",
-    network: "thundercore-testnet",
+    chain: 'TST',
+    network: 'thundercore-testnet',
     networkId: 18
   },
   30: {
     chainId: 30,
-    chain: "RSK",
-    network: "rsk",
+    chain: 'RSK',
+    network: 'rsk',
     networkId: 30
   },
   31: {
     chainId: 31,
-    chain: "RSK",
-    network: "rsk-testnet",
+    chain: 'RSK',
+    network: 'rsk-testnet',
     networkId: 31
   },
   42: {
     chainId: 42,
-    chain: "ETH",
-    network: "kovan",
+    chain: 'ETH',
+    network: 'kovan',
     networkId: 42
   },
   60: {
     chainId: 60,
-    chain: "GO",
-    network: "gochain",
+    chain: 'GO',
+    network: 'gochain',
     networkId: 60
   },
   61: {
     chainId: 61,
-    chain: "ETC",
-    network: "etc",
+    chain: 'ETC',
+    network: 'etc',
     networkId: 1
   },
   62: {
     chainId: 62,
-    chain: "ETC",
-    network: "etc-morden",
+    chain: 'ETC',
+    network: 'etc-morden',
     networkId: 2
   },
   63: {
     chainId: 63,
-    chain: "ETC",
-    network: "etc-testnet",
+    chain: 'ETC',
+    network: 'etc-testnet',
     networkId: 7
   },
   64: {
     chainId: 64,
-    chain: "ELLA",
-    network: "ellaism",
+    chain: 'ELLA',
+    network: 'ellaism',
     networkId: 64
   },
   76: {
     chainId: 76,
-    chain: "MIX",
-    network: "mix",
+    chain: 'MIX',
+    network: 'mix',
     networkId: 76
   },
   77: {
     chainId: 77,
-    chain: "POA",
-    network: "poa-sokol",
+    chain: 'POA',
+    network: 'poa-sokol',
     networkId: 77
   },
   88: {
     chainId: 88,
-    chain: "TOMO",
-    network: "tomochain",
+    chain: 'TOMO',
+    network: 'tomochain',
     networkId: 88
   },
   99: {
     chainId: 99,
-    chain: "POA",
-    network: "poa-core",
+    chain: 'POA',
+    network: 'poa-core',
     networkId: 99
   },
   100: {
     chainId: 100,
-    chain: "XDAI",
-    network: "xdai",
+    chain: 'XDAI',
+    network: 'xdai',
     networkId: 100
   },
   101: {
     chainId: 101,
-    chain: "ETI",
-    network: "etherinc",
+    chain: 'ETI',
+    network: 'etherinc',
     networkId: 1
   },
   108: {
     chainId: 108,
-    chain: "TT",
-    network: "thundercore",
+    chain: 'TT',
+    network: 'thundercore',
     networkId: 108
   },
   162: {
     chainId: 162,
-    chain: "PHT",
-    network: "sirius",
+    chain: 'PHT',
+    network: 'sirius',
     networkId: 162
   },
   163: {
     chainId: 163,
-    chain: "PHT",
-    network: "lightstreams",
+    chain: 'PHT',
+    network: 'lightstreams',
     networkId: 163
   },
   211: {
     chainId: 211,
-    chain: "FTN",
-    network: "freight",
+    chain: 'FTN',
+    network: 'freight',
     networkId: 0
   },
   269: {
     chainId: 269,
-    chain: "HPB",
-    network: "hpb",
+    chain: 'HPB',
+    network: 'hpb',
     networkId: 100
   },
   385: {
     chainId: 385,
-    chain: "CRO",
-    network: "lisinski",
+    chain: 'CRO',
+    network: 'lisinski',
     networkId: 385
   },
   820: {
     chainId: 820,
-    chain: "CLO",
-    network: "callisto",
+    chain: 'CLO',
+    network: 'callisto',
     networkId: 1
   },
   821: {
     chainId: 821,
-    chain: "CLO",
-    network: "callisto-testnet",
+    chain: 'CLO',
+    network: 'callisto-testnet',
     networkId: 2
   }
 };

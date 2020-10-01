@@ -1,4 +1,4 @@
-import { IAbstractConnectorOptions } from "../../helpers";
+import { IAbstractConnectorOptions } from '../../helpers';
 
 export interface IArkaneConnectorOptions extends IAbstractConnectorOptions {
   clientId: string;
@@ -14,7 +14,7 @@ const ConnectToArkane = (Arkane: any, opts: IArkaneConnectorOptions) => {
           clientId: opts.clientId,
           rpcUrl: opts.nodeUrl,
           environment: opts.environment,
-          signMethod: "POPUP"
+          signMethod: 'POPUP'
         };
         const provider = await (window as any).Arkane.createArkaneProviderEngine(
           options
@@ -22,10 +22,10 @@ const ConnectToArkane = (Arkane: any, opts: IArkaneConnectorOptions) => {
         return resolve(provider);
       } catch (error) {
         console.error(error);
-        return reject(new Error("Failed to login to Arkane 2"));
+        return reject(new Error('Failed to login to Arkane 2'));
       }
     } else {
-      return reject(new Error("Please provide an Arkane client id"));
+      return reject(new Error('Please provide an Arkane client id'));
     }
   });
 };

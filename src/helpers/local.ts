@@ -1,8 +1,8 @@
 export let local: Storage;
 
 if (
-  typeof window !== "undefined" &&
-  typeof window.localStorage !== "undefined"
+  typeof window !== 'undefined' &&
+  typeof window.localStorage !== 'undefined'
 ) {
   local = window.localStorage;
 }
@@ -20,7 +20,7 @@ export const getLocal = (key: string) => {
   if (local) {
     raw = local.getItem(key);
   }
-  if (raw && typeof raw === "string") {
+  if (raw && typeof raw === 'string') {
     try {
       data = JSON.parse(raw);
     } catch (error) {

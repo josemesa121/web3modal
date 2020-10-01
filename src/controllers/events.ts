@@ -1,4 +1,4 @@
-import { IEventCallback } from "../helpers";
+import { IEventCallback } from '../helpers';
 
 // -- EventController --------------------------------------------------------- //
 

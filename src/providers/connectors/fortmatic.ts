@@ -1,4 +1,4 @@
-import { IAbstractConnectorOptions } from "../../helpers";
+import { IAbstractConnectorOptions } from '../../helpers';
 
 export interface IFortmaticConnectorOptions extends IAbstractConnectorOptions {
   key: string;
@@ -19,13 +19,13 @@ const ConnectToFortmatic = async (
       if (isLoggedIn) {
         return provider;
       } else {
-        throw new Error("Failed to login to Fortmatic");
+        throw new Error('Failed to login to Fortmatic');
       }
     } catch (error) {
       throw error;
     }
   } else {
-    throw new Error("Missing Fortmatic key");
+    throw new Error('Missing Fortmatic key');
   }
 };
 

@@ -1,4 +1,4 @@
-import { IAbstractConnectorOptions } from "../../helpers";
+import { IAbstractConnectorOptions } from '../../helpers';
 
 export interface IOptions {
   scope?: string[];
@@ -17,7 +17,7 @@ const ConnectToSquarelink = (
     if (opts && opts.id) {
       try {
         const id = opts.id;
-        const network = opts.network || "mainnet";
+        const network = opts.network || 'mainnet';
         const config = opts.config;
         const sqlk = new Squarelink(id, network, config);
         const provider = await sqlk.getProvider();
@@ -25,10 +25,10 @@ const ConnectToSquarelink = (
         await provider.enable();
         return resolve(provider);
       } catch (error) {
-        return reject(new Error("Failed to login to Squarelink"));
+        return reject(new Error('Failed to login to Squarelink'));
       }
     } else {
-      return reject(new Error("Missing Squarelink Id"));
+      return reject(new Error('Missing Squarelink Id'));
     }
   });
 };

@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
 import {
   ICoreOptions,
@@ -7,16 +7,16 @@ import {
   ThemeColors,
   getThemeColors,
   SimpleFunction
-} from "../helpers";
+} from '../helpers';
 import {
   WEB3_CONNECT_MODAL_ID,
   CONNECT_EVENT,
   ERROR_EVENT,
-  CLOSE_EVENT
-} from "../constants";
-import { themesList } from "../themes";
-import { Modal } from "../components";
-import { EventController, ProviderController } from "../controllers";
+  CLOSE_EVENT,
+} from '../constants';
+import { themesList } from '../themes';
+import { Modal } from '../components';
+import { EventController, ProviderController } from '../controllers';
 
 const INITIAL_STATE = { show: false };
 
@@ -26,7 +26,7 @@ const defaultOpts: ICoreOptions = {
   cacheProvider: false,
   disableInjectedProvider: false,
   providerOptions: {},
-  network: ""
+  network: '',
 };
 
 export class Core {
@@ -40,7 +40,7 @@ export class Core {
   constructor(opts?: Partial<ICoreOptions>) {
     const options: ICoreOptions = {
       ...defaultOpts,
-      ...opts
+      ...opts,
     };
 
     this.lightboxOpacity = options.lightboxOpacity;
@@ -50,7 +50,7 @@ export class Core {
       disableInjectedProvider: options.disableInjectedProvider,
       cacheProvider: options.cacheProvider,
       providerOptions: options.providerOptions,
-      network: options.network
+      network: options.network,
     });
 
     this.providerController.on(CONNECT_EVENT, provider =>
@@ -72,7 +72,7 @@ export class Core {
     new Promise(async (resolve, reject) => {
       this.on(CONNECT_EVENT, provider => resolve(provider));
       this.on(ERROR_EVENT, error => reject(error));
-      this.on(CLOSE_EVENT, () => reject("Modal closed by user"));
+      this.on(CLOSE_EVENT, () => reject('Modal closed by user'));
       await this.toggleModal();
     });
 
@@ -80,7 +80,7 @@ export class Core {
     new Promise(async (resolve, reject) => {
       this.on(CONNECT_EVENT, provider => resolve(provider));
       this.on(ERROR_EVENT, error => reject(error));
-      this.on(CLOSE_EVENT, () => reject("Modal closed by user"));
+      this.on(CLOSE_EVENT, () => reject('Modal closed by user'));
       const provider = this.providerController.getProvider(id);
       if (!provider) {
         return reject(
@@ -144,7 +144,7 @@ export class Core {
   // --------------- PRIVATE METHODS --------------- //
 
   private renderModal() {
-    const el = document.createElement("div");
+    const el = document.createElement('div');
     el.id = WEB3_CONNECT_MODAL_ID;
     document.body.appendChild(el);
 
@@ -161,13 +161,13 @@ export class Core {
   }
 
   private _toggleModal = async () => {
-    const d = typeof window !== "undefined" ? document : "";
-    const body = d ? d.body || d.getElementsByTagName("body")[0] : "";
+    const d = typeof window !== 'undefined' ? document : '';
+    const body = d ? d.body || d.getElementsByTagName('body')[0] : '';
     if (body) {
       if (this.show) {
-        body.style.overflow = "";
+        body.style.overflow = '';
       } else {
-        body.style.overflow = "hidden";
+        body.style.overflow = 'hidden';
       }
     }
     await this.updateState({ show: !this.show });

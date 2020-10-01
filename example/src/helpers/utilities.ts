@@ -1,18 +1,18 @@
-import * as ethUtil from "ethereumjs-util";
-import { IChainData } from "./types";
-import supportedChains from "./chains";
-import { apiGetGasPrices, apiGetAccountNonce } from "./api";
-import { convertAmountToRawNumber, convertStringToHex } from "./bignumber";
+import * as ethUtil from 'ethereumjs-util';
+import { IChainData } from './types';
+import supportedChains from './chains';
+import { apiGetGasPrices, apiGetAccountNonce } from './api';
+import { convertAmountToRawNumber, convertStringToHex } from './bignumber';
 
 export function capitalize(string: string): string {
   return string
-    .split(" ")
+    .split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(" ");
+    .join(' ');
 }
 
 export function ellipseText(
-  text: string = "",
+  text: string = '',
   maxLength: number = 9999
 ): string {
   if (text.length <= maxLength) {
@@ -23,7 +23,7 @@ export function ellipseText(
   let currentLength = 0;
   const result =
     text
-      .split(" ")
+      .split(' ')
       .filter(word => {
         currentLength += word.length;
         if (ellipse || currentLength >= _maxLength) {
@@ -33,38 +33,38 @@ export function ellipseText(
           return true;
         }
       })
-      .join(" ") + "...";
+      .join(' ') + '...';
   return result;
 }
 
 export function ellipseAddress(
-  address: string = "",
+  address: string = '',
   width: number = 10
 ): string {
   return `${address.slice(0, width)}...${address.slice(-width)}`;
 }
 
 export function padLeft(n: string, width: number, z?: string): string {
-  z = z || "0";
-  n = n + "";
+  z = z || '0';
+  n = n + '';
   return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
 }
 
 export function sanitizeHex(hex: string): string {
-  hex = hex.substring(0, 2) === "0x" ? hex.substring(2) : hex;
-  if (hex === "") {
-    return "";
+  hex = hex.substring(0, 2) === '0x' ? hex.substring(2) : hex;
+  if (hex === '') {
+    return '';
   }
-  hex = hex.length % 2 !== 0 ? "0" + hex : hex;
-  return "0x" + hex;
+  hex = hex.length % 2 !== 0 ? '0' + hex : hex;
+  return '0x' + hex;
 }
 
 export function removeHexPrefix(hex: string): string {
-  return hex.toLowerCase().replace("0x", "");
+  return hex.toLowerCase().replace('0x', '');
 }
 
 export function getDataString(func: string, arrVals: any[]): string {
-  let val = "";
+  let val = '';
   for (let i = 0; i < arrVals.length; i++) {
     val += padLeft(arrVals[i], 64);
   }
@@ -77,7 +77,7 @@ export function isMobile(): boolean {
 
   function hasTouchEvent(): boolean {
     try {
-      document.createEvent("TouchEvent");
+      document.createEvent('TouchEvent');
       return true;
     } catch (e) {
       return false;
@@ -111,17 +111,17 @@ export function getChainData(chainId: number): IChainData {
   )[0];
 
   if (!chainData) {
-    throw new Error("ChainId missing or not supported");
+    throw new Error('ChainId missing or not supported');
   }
 
   const API_KEY = process.env.REACT_APP_INFURA_ID;
 
   if (
-    chainData.rpc_url.includes("infura.io") &&
-    chainData.rpc_url.includes("%API_KEY%") &&
+    chainData.rpc_url.includes('infura.io') &&
+    chainData.rpc_url.includes('%API_KEY%') &&
     API_KEY
   ) {
-    const rpcUrl = chainData.rpc_url.replace("%API_KEY%", API_KEY);
+    const rpcUrl = chainData.rpc_url.replace('%API_KEY%', API_KEY);
 
     return {
       ...chainData,
@@ -141,7 +141,7 @@ export function hashPersonalMessage(msg: string): string {
 
 export function recoverPublicKey(sig: string, hash: string): string {
   const sigParams = ethUtil.fromRpcSig(sig);
-  const hashBuffer = Buffer.from(hash.replace("0x", ""), "hex");
+  const hashBuffer = Buffer.from(hash.replace('0x', ''), 'hex');
   const result = ethUtil.ecrecover(
     hashBuffer,
     sigParams.v,
@@ -185,7 +185,7 @@ export async function formatTestTransaction(address: string, chainId: number) {
   const value = sanitizeHex(convertStringToHex(_value));
 
   // data
-  const data = "0x";
+  const data = '0x';
 
   // test transaction
   const tx = {
@@ -202,5 +202,5 @@ export async function formatTestTransaction(address: string, chainId: number) {
 }
 
 export function isObject(obj: any): boolean {
-  return typeof obj === "object" && !!Object.keys(obj).length;
+  return typeof obj === 'object' && !!Object.keys(obj).length;
 }

@@ -1,4 +1,4 @@
-import { IAbstractConnectorOptions, getChainId } from "../../helpers";
+import { IAbstractConnectorOptions, getChainId } from '../../helpers';
 
 export interface IWalletConnectConnectorOptions
   extends IAbstractConnectorOptions {
@@ -13,16 +13,16 @@ const ConnectToWalletConnect = (
   opts: IWalletConnectConnectorOptions
 ) => {
   return new Promise(async (resolve, reject) => {
-    let bridge = "https://bridge.walletconnect.org";
+    let bridge = 'https://bridge.walletconnect.org';
     let qrcode = true;
-    let infuraId = "";
+    let infuraId = '';
     let rpc = undefined;
     let chainId = 1;
     console.log('wallet connect'); // todo remove dev item
     if (opts) {
       bridge = opts.bridge || bridge;
-      qrcode = typeof opts.qrcode !== "undefined" ? opts.qrcode : qrcode;
-      infuraId = opts.infuraId || "";
+      qrcode = typeof opts.qrcode !== 'undefined' ? opts.qrcode : qrcode;
+      infuraId = opts.infuraId || '';
       rpc = opts.rpc || undefined;
       chainId =
         opts.network && getChainId(opts.network) ? getChainId(opts.network) : 1;
