@@ -141,7 +141,7 @@ export const WALLETLINK: IProviderInfo = {
   name: "WalletLink",
   logo: WalletLinkLogo,
   type: "qrcode",
-  check: "isWalletlink",
+  check: "isWalletLink",
   package: {
     required: ['appLogoUrl', 'appName', 'infuraId'],
   },
