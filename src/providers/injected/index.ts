@@ -43,14 +43,6 @@ export const METAMASK: IProviderInfo = {
   check: 'isMetaMask'
 };
 
-export const COINBASE: IProviderInfo = {
-  id: 'injected',
-  name: 'Coinbase',
-  logo: MetaMaskLogo,
-  type: 'injected',
-  check: 'isCoinbase'
-};
-
 export const SAFE: IProviderInfo = {
   id: 'injected',
   name: 'Safe',

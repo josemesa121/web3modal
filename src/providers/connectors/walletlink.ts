@@ -1,4 +1,4 @@
-import { IAbstractConnectorOptions, getChainId } from '../../helpers';
+import { IAbstractConnectorOptions } from '../../helpers';
 
 const INFURA_URL = 'https://mainnet.infura.io/v3/';
 
@@ -6,30 +6,40 @@ export interface IWalletLinkConnectorOptions
   extends IAbstractConnectorOptions {
   appName: string;
   appLogoUrl: string;
-  infuraId: string;
   chainId: number;
+  darkMode: boolean;
+  infuraId: string;
 }
 
 const ConnectToWalletLink = (
-  WalletLinkProvider: any,
+  WalletLink: any,
   opts: IWalletLinkConnectorOptions,
 ) => {
   return new Promise(async (resolve, reject) => {
     let infuraId = '';
     let chainId = 1;
+    let darkMode = false;
+    let appName = null;
+    let appLogoUrl = null;
 
-    console.log('wallet connect'); // t
     if (opts) {
       infuraId = opts.infuraId || infuraId;
+      darkMode = opts.darkMode || darkMode;
       chainId = opts.chainId || chainId;
-      chainId =
-        opts.network && getChainId(opts.network) ? getChainId(opts.network) : 1;
+      appName = opts.appName;
+      appLogoUrl = opts.appLogoUrl;
     }
 
-    const provider = new WalletLinkProvider({
-      jsonRpcUrl: `${INFURA_URL}${infuraId}`,
-      chainId,
+    const walletlink = new WalletLink({
+      appName,
+      appLogoUrl,
+      darkMode,
     });
+
+    const provider = walletlink.makeWeb3Provider(
+      `${INFURA_URL}${infuraId}`,
+      chainId,
+    );
 
     try {
       await provider.enable();
@@ -37,12 +47,6 @@ const ConnectToWalletLink = (
     } catch (e) {
       reject(e);
     }
-    // const walletLink = new Wallet({
-    //   appName,
-    //   appLogoUrl
-    // });
-    // const provider = walletLink.makeWeb3Provider(networkUrl, chainId);
-
   });
 };
 
