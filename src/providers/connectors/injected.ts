@@ -1,15 +1,16 @@
 const ConnectToInjected = async () => {
   let provider = null;
-  
-  if (window.ethereum) {
-    provider = window.ethereum;
+  let anyWindow = window as any;
+
+  if (anyWindow.ethereum) {
+    provider = anyWindow.ethereum;
     try {
-      await window.ethereum.enable();
+      await anyWindow.ethereum.enable();
     } catch (error) {
-      throw new Error("User Rejected");
+      throw new Error('User Rejected');
     }
-  } else if (window.web3) {
-    provider = window.web3.currentProvider;
+  } else if (anyWindow.web3) {
+    provider = anyWindow.web3.currentProvider;
   } else {
     throw new Error('No Web3 Provider found');
   }

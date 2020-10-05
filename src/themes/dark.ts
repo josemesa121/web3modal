@@ -7,8 +7,8 @@ const darkTheme: IThemeConfig = {
     main: 'rgb(199, 199, 199)',
     secondary: 'rgb(136, 136, 136)',
     border: 'rgba(195, 195, 195, 0.14)',
-    hover: 'rgb(16, 26, 32)'
-  }
+    hover: 'rgb(16, 26, 32)',
+  },
 };
 
 export default darkTheme;

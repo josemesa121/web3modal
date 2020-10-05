@@ -11,15 +11,6 @@ import {
 } from '../constants';
 import { SimpleFunction, IProviderUserOptions, ThemeColors } from '../helpers';
 
-declare global {
-  // tslint:disable-next-line
-  interface Window {
-    ethereum: any;
-    web3: any;
-    updateWeb3Modal: any;
-  }
-}
-
 interface ILightboxStyleProps {
   show: boolean;
   offset: number;
@@ -132,7 +123,7 @@ const INITIAL_STATE: IModalState = {
 export class Modal extends React.Component<IModalProps, IModalState> {
   constructor(props: IModalProps) {
     super(props);
-    window.updateWeb3Modal = async (state: IModalState) => {
+    (window as any).updateWeb3Modal = async (state: IModalState) => {
       this.setState(state);
     };
   }

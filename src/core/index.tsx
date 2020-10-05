@@ -198,7 +198,7 @@ export class Core {
     Object.keys(state).forEach(key => {
       this[key] = state[key];
     });
-    await window.updateWeb3Modal(state);
+    await (window as any).updateWeb3Modal(state);
   };
 
   private resetState = () => this.updateState({ ...INITIAL_STATE });

@@ -5,5 +5,5 @@ import darkTheme from './dark';
 export const themesList: ThemesList = {
   default: lightTheme,
   [lightTheme.name]: lightTheme,
-  [darkTheme.name]: darkTheme
+  [darkTheme.name]: darkTheme,
 };

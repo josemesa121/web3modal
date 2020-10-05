@@ -137,11 +137,11 @@ export const DCENT: IProviderInfo = {
 };
 
 export const WALLETLINK: IProviderInfo = {
-  id: "walletlink",
-  name: "WalletLink",
+  id: 'walletlink',
+  name: 'WalletLink',
   logo: WalletLinkLogo,
-  type: "qrcode",
-  check: "isWalletLink",
+  type: 'qrcode',
+  check: 'isWalletLink',
   package: {
     required: ['appLogoUrl', 'appName', 'infuraId'],
   },

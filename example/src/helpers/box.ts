@@ -1,21 +1,20 @@
-import { logMsg } from './dev'
-import { IBoxProfile } from './types'
+import {logMsg} from './dev'
+import {IBoxProfile} from './types'
 
 const SPACE_ID = 'TEST_WEB3_APP'
 
 const Box =
-  typeof window !== 'undefined' && typeof window.Box !== 'undefined'
-    ? window.Box
+  typeof window !== 'undefined' && typeof (window as any).Box !== 'undefined'
+    ? (window as any).Box
     : null
 
 let box: any | null = null
 
 export async function getProfile(address: string): Promise<IBoxProfile> {
   if (!Box) {
-    throw new Error('Box library is not available in window')
+    throw new Error('Box library is not available in window');
   }
-  const profile = await Box.getProfile(address)
-  return profile
+  return await Box.getProfile(address);
 }
 
 export async function openBox(
@@ -24,13 +23,13 @@ export async function openBox(
   syncCallback: any
 ): Promise<any> {
   if (!Box) {
-    throw new Error('Box library is not available in window')
+    throw new Error('Box library is not available in window');
   }
-  box = await Box.openBox(address, provider)
+  box = await Box.openBox(address, provider);
   box.onSyncDone(() => {
-    logMsg('SYNC DONE')
-    syncCallback()
-  })
+    logMsg('SYNC DONE');
+    syncCallback();
+  });
 }
 
 export async function setPublic(key: string, value: any) {
@@ -173,10 +172,9 @@ export async function joinThread(threadName: string) {
 
 export async function getThreadPosts() {
   if (!thread) {
-    throw new Error('Thread is not open yet')
+    throw new Error('Thread is not open yet');
   }
-  const posts = await thread.getPosts()
-  return posts
+  return await thread.getPosts();
 }
 
 export async function postToThread(message: any) {

@@ -3,7 +3,7 @@ import {
   CONNECT_EVENT,
   ERROR_EVENT,
   INJECTED_PROVIDER_ID,
-  CACHED_PROVIDER_KEY
+  CACHED_PROVIDER_KEY,
 } from '../constants';
 import {
   isMobile,
@@ -19,7 +19,7 @@ import {
   filterMatches,
   IProviderUserOptions,
   getInjectedProvider,
-  findMatchingRequiredOptions
+  findMatchingRequiredOptions,
 } from '../helpers';
 import { EventController } from './events';
 
@@ -57,20 +57,20 @@ export class ProviderController {
         if (typeof options.display !== 'undefined') {
           providerInfo = {
             ...providerInfo,
-            ...this.providerOptions[id].display
+            ...this.providerOptions[id].display,
           };
         }
       }
       return {
         ...providerInfo,
         connector: list.connectors[id],
-        package: providerInfo.package
+        package: providerInfo.package,
       };
     });
     // parse custom providers
     Object.keys(this.providerOptions)
-      .filter(key => key.startsWith('custom-'))
-      .map(id => {
+      .filter((key) => key.startsWith('custom-'))
+      .map((id) => {
         if (id && this.providerOptions[id]) {
           const options = this.providerOptions[id];
           if (
@@ -81,7 +81,7 @@ export class ProviderController {
               ...list.providers.FALLBACK,
               id,
               ...options.display,
-              connector: options.connector
+              connector: options.connector,
             });
           }
         }
@@ -156,7 +156,7 @@ export class ProviderController {
           name,
           logo,
           description: getProviderDescription(provider),
-          onClick: () => this.connectTo(id, connector)
+          onClick: () => this.connectTo(id, connector),
         });
       }
     });
@@ -167,7 +167,7 @@ export class ProviderController {
   public getProvider(id: string) {
     return filterMatches<IProviderDisplayWithConnector>(
       this.providers,
-      x => x.id === id,
+      (x) => x.id === id,
       undefined
     );
   }
@@ -218,20 +218,20 @@ export class ProviderController {
   public on(event: string, callback: (result: any) => void): () => void {
     this.eventController.on({
       event,
-      callback
+      callback,
     });
 
     return () =>
       this.eventController.off({
         event,
-        callback
+        callback,
       });
   }
 
   public off(event: string, callback?: (result: any) => void): void {
     this.eventController.off({
       event,
-      callback
+      callback,
     });
   }
 }
