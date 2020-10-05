@@ -1,6 +1,6 @@
 {
   "name": "web3modal",
-  "version": "1.9.0",
+  "version": "1.9.2",
   "description": "A single Web3 / Ethereum provider solution for all Wallets",
   "keywords": [
     "web3",
@@ -15,9 +15,15 @@
     "arkane",
     "torus",
     "walletlink",
-    "authereum"
+    "authereum",
+    "coinbase",
+    "walletlink"
   ],
-  "author": "Web3Modal <web3modal.com>",
+  "author": {
+    "name": "Ignacio García",
+    "email": "nap@dextoos.io",
+    "url": "https:dextools.io"
+  },
   "license": "MIT",
   "main": "dist/index.js",
   "unpkg": "dist/index.js",
@@ -30,13 +36,13 @@
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/web3modal/web3modal",
+  "homepage": "https://github.com/dextools-io/web3modal",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/web3modal/web3modal.git"
+    "url": "git+https://github.com/dextools-io/web3modal.git"
   },
   "bugs": {
-    "url": "https://github.com/web3modal/web3modal/issues"
+    "url": "https://github.com/dextools-io/web3modal/issues"
   },
   "scripts": {
     "clean": "rm -rf dist",
