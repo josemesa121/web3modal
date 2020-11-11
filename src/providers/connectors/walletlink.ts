@@ -22,6 +22,7 @@ const ConnectToWalletLink = (
     let appName = null;
     let appLogoUrl = null;
     console.log('==============================');
+    console.log(opts);
     console.log(opts.network);
 
     if (opts) {
