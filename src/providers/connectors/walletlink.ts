@@ -1,6 +1,6 @@
 import { IAbstractConnectorOptions } from '../../helpers';
 
-const INFURA_URL = 'https://mainnet.infura.io/v3/';
+const INFURA_URL = 'https://rinkeby.infura.io/v3/';
 
 export interface IWalletLinkConnectorOptions
   extends IAbstractConnectorOptions {
@@ -9,7 +9,6 @@ export interface IWalletLinkConnectorOptions
   chainId: number;
   darkMode: boolean;
   infuraId: string;
-  namechain: string;
 }
 
 const ConnectToWalletLink = (
@@ -38,7 +37,7 @@ const ConnectToWalletLink = (
     });
 
     const provider = walletlink.makeWeb3Provider(
-      `'https://rinkeby.infura.io/v3/${infuraId}`,
+      `${INFURA_URL}${infuraId}`,
       chainId,
     );
 
