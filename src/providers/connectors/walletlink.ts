@@ -21,6 +21,8 @@ const ConnectToWalletLink = (
     let darkMode = false;
     let appName = null;
     let appLogoUrl = null;
+    console.log('==============================');
+    console.log(opts.network);
 
     if (opts) {
       infuraId = opts.infuraId || infuraId;
