@@ -9,6 +9,7 @@ export interface IWalletLinkConnectorOptions
   chainId: number;
   darkMode: boolean;
   infuraId: string;
+  namechain: string;
 }
 
 const ConnectToWalletLink = (
@@ -37,7 +38,7 @@ const ConnectToWalletLink = (
     });
 
     const provider = walletlink.makeWeb3Provider(
-      `${INFURA_URL}${infuraId}`,
+      `'https://rinkeby.infura.io/v3/${infuraId}`,
       chainId,
     );
 
