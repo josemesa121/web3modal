@@ -1,7 +1,4 @@
-import { IAbstractConnectorOptions, getChainId } from '../../helpers';
-import { environment } from '../../../../../environments/environment';
-
-const INFURA_URL = 'https://rinkeby.infura.io/v3/';
+import { IAbstractConnectorOptions } from '../../helpers';
 
 export interface IWalletLinkConnectorOptions
   extends IAbstractConnectorOptions {
@@ -22,13 +19,6 @@ const ConnectToWalletLink = (
     let darkMode = false;
     let appName = null;
     let appLogoUrl = null;
-    console.log('==============================');
-    console.log(environment);
-    console.log(resolve);
-    console.log(reject);
-    console.log(opts.network && getChainId(opts.network) ? getChainId(opts.network) : 1);
-    console.log(opts);
-    console.log(opts.network);
 
     if (opts) {
       infuraId = opts.infuraId || infuraId;
@@ -44,8 +34,16 @@ const ConnectToWalletLink = (
       darkMode,
     });
 
+    let networkType = 'rinkeby';
+    if (chainId === 4){
+      networkType = 'mainnet'
+    }
+
+    console.log('==============================');
+    console.log(networkType);
+
     const provider = walletlink.makeWeb3Provider(
-      `${INFURA_URL}${infuraId}`,
+      `https://${networkType}.infura.io/v3/${infuraId}`,
       chainId,
     );
 
