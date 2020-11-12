@@ -1,4 +1,5 @@
 import { IAbstractConnectorOptions, getChainId } from '../../helpers';
+import { environment } from '../../../../../environments/environment';
 
 const INFURA_URL = 'https://rinkeby.infura.io/v3/';
 
@@ -22,6 +23,7 @@ const ConnectToWalletLink = (
     let appName = null;
     let appLogoUrl = null;
     console.log('==============================');
+    console.log(environment);
     console.log(resolve);
     console.log(reject);
     console.log(opts.network && getChainId(opts.network) ? getChainId(opts.network) : 1);
