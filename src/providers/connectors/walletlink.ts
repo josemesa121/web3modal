@@ -34,9 +34,9 @@ const ConnectToWalletLink = (
       darkMode,
     });
 
-    let networkType = 'rinkeby';
+    let networkType = 'mainnet';
     if (chainId === 4){
-      networkType = 'mainnet'
+      networkType = 'rinkeby'
     }
 
     console.log('==============================');
